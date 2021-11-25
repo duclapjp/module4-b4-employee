@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+<body>
+<h3>View Employee</h3>
+<p>
+    <a th:href="@{/employee/view/}">
+        Back to Employee list
+    </a>
+</p>
+
+<label>ID:</label>
+<label th:text="${employee.id}"></label>
+<label>NAME:</label>
+<label th:text="${employee.name}"></label>
+<label>ContactNumber:</label>
+<label th:text="${employee.contactNumber}"></label>
+<footer th:insert="/layout::footer">
+</footer>
+</body>
+</html>

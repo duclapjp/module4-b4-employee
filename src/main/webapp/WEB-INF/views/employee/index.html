@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout::head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<body>
+<form action="/employee/search" method="get" >
+    <input type="text" placeholder="nhập vào tên" name="name">
+    <input type="submit" value="tìm kiếm">
+</form>
+<a th:href="@{/employee/create}">Add New Employee</a>
+<form action="/employee/view">
+    <table th:each="employee: ${employees}">
+        <tr>
+            <th>ID:</th>
+            <th>NAME:</th>
+            <th>CONTACT NUMBER:</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.contactNumber}"></td>
+            <td><a th:href="@{/employee/__${employee.id}__/edit}">Edit</a></td>
+            <td><a th:href="@{/employee/__${employee.id}__/delete}">Delete</a></td>
+        </tr>
+    </table>
+</form>
+
+<footer th:insert="/layout::footer">
+</footer>
+</body>
+</html>
